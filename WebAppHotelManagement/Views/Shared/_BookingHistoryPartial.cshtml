@@ -1,0 +1,98 @@
+﻿@model IEnumerable<WebAppHotelManagement.ViewModels.RoomBookingViewModel>
+
+<style type="text/css">
+    TABLE {
+        width: 300px; /* Ширина таблицы */
+        border: 1px solid silver; /* Рамка вокруг таблицы */
+        border-bottom: none; /* Убираем линию снизу */
+    }
+
+    TD, TH {
+        padding: 3px; /* Поля вокруг содержимого ячеек */
+        border: 1px solid silver; /* Рамка вокруг таблицы */
+    }
+
+    TH {
+        text-align: left; /* Выравнивание по левому краю */
+
+
+    }
+
+    TD {
+        border-bottom: 1px solid silver; /* Линия снизу */
+    }
+</style>
+
+<table class="table table-sm" style="width: 100%">
+    <thead>
+        <tr class="bg-primary" style="color: white;">
+            <th>
+                Ім'я
+            </th>
+            <th>
+                Адреса
+            </th>
+            <th>
+                Номер
+            </th>
+            <th>
+                Початок брон.
+            </th>
+            <th>
+                Кiнець брон.
+            </th>
+            <th>
+                Кімната
+            </th>
+            <th>
+                Кількість проживаючих
+            </th>
+            <th>
+                Кiлькiсть днiв
+            </th>
+            <th>
+                Вартість Номера(грн.)
+            </th>
+            <th>
+                Загальна вартiсть(грн.)
+            </th>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.CustomerName
+                </td>
+                <td>
+                    @item.CustomerAdress
+                </td>
+                <td>
+                    @item.CustomerPhone
+                </td>
+                <td>
+                    @item.BookingFrom.ToString("dd-MMM-yyyy")
+                </td>
+                <td>
+                    @item.BookingTo.ToString("dd-MMM-yyyy")
+                </td>
+                <td>
+                    @item.RoomNumber
+                </td>
+                <td>
+                    @item.NumberOfMembers
+                </td>
+                <td>
+                    @item.NumberOfDays
+                </td>
+                <td>
+                    @item.RoomPrice.ToString("#,##0.00")
+                </td>
+                <td>
+                    @item.TotalAmount.ToString("#,##0.00")
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
